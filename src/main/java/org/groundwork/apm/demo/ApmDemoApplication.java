@@ -43,7 +43,7 @@ public class ApmDemoApplication extends SimpleClientHttpRequestFactory implement
 
 		while (true) {
 			Span span = tracer.spanBuilder("groundwork-apm-demo").setSpanKind(Span.Kind.CLIENT).startSpan();
-			try (Scope scopee = tracer.withSpan(span)) {
+			try (Scope scope = tracer.withSpan(span)) {
 				// your use case
 				Thread.sleep(2000);
 				String url = "http://localhost:8080/demo/route1";
